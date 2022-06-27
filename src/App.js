@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Cadastro from "./Pages/Cadastro";
+import Jobs from "./Pages/Jobs";
+import Home from "./Pages/Home";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    mudaTela: "home"
+  }
+
+  onScreen = () => {
+    switch (this.state.mudaTela){
+      case "home":
+        return <Home 
+        mudaHome={this.mudaHome}
+        mudaCadastro={this.mudaCadastro}
+        mudaJobs={this.mudaJobs} /> 
+      case "cadastro":
+        return <Cadastro
+        mudaHome={this.mudaHome}
+        mudaCadastro={this.mudaCadastro}
+        mudaJobs={this.mudaJobs}/>
+      case "jobs":
+        return <Jobs 
+        mudaHome={this.mudaHome}
+        mudaCadastro={this.mudaCadastro}
+        mudaJobs={this.mudaJobs}/>
+    }
+  }
+
+  mudaHome = () => {
+    this.setState({mudaTela: "home"})
+  }
+
+  mudaCadastro = () => {
+    this.setState({mudaTela: "cadastro"})
+  }
+
+  mudaJobs = () => {
+    this.setState({mudaTela: "jobs"})
+  }
+
+  render(){
+    return(
+      <div>
+        {this.onScreen()}
+      </div>
+    )
+  }
 }
-
-export default App;
