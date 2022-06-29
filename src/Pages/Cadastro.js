@@ -1,75 +1,78 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import axios from "axios";
 import { axiosConfig, postJob_Url } from "../Constants/url";
 
 export default class Cadastro extends Component {
-  state = {
-    titlejob: "",
-    descriptionjob: "",
-    pricejob: "",
-    paymentMethodsjob: [""],
-    dueDatejob: "",
+  
+state = {
+  titlejob: "",
+  descriptionjob: "",
+  pricejob: "",
+  paymentMethodsjob: [""],
+  dueDatejob: "",
+};
+inputTitle = (event) => {
+  this.setState({ titlejob: event.target.value });
+};
+inputDescription = (event) => {
+  this.setState({ descriptionjob: event.target.value });
+};
+inputPrice = (event) => {
+  this.setState({ pricejob: event.target.value });
+};
+inputPaymentMethods = (event) => {
+  this.setState({ paymentMethodsjob: event.target.value });
+};
+inputDueDate = (event) => {
+  this.setState({ dueDatejob: event.target.value });
+};
+creatorJob = () => {
+// state={
+//   titlejob:"",
+//   descriptionjob:"",
+//   pricejob:"",
+//   paymentMethodsjob:[],
+//   dueDatejob:""
+// }
+}
+inputTitle = (event) =>{
+  this.setState({titlejob:event.target.value});
+}
+inputDescription = (event) =>{
+  this.setState({descriptionjob:event.target.value});
+}
+inputPrice = (event) =>{
+  this.setState({pricejob:event.target.value});
+}
+inputPaymentMethods = (event) =>{
+  this.setState({paymentMethodsjob:event.target.value});
+}
+inputDueDate = (event) =>{
+  this.setState({dueDatejob:event.target.value});
+}
+creatorJob =()=>{
+  
+  const body = {
+    title: this.state.titlejob,
+    description: this.state.descriptionjob,
+    price: parseInt(this.state.pricejob),
+    paymentMethods: [this.state.paymentMethodsjob],
+    dueDate: this.state.dueDatejob,
   };
-  inputTitle = (event) => {
-    this.setState({ titlejob: event.target.value });
-  };
-  inputDescription = (event) => {
-    this.setState({ descriptionjob: event.target.value });
-  };
-  inputPrice = (event) => {
-    this.setState({ pricejob: event.target.value });
-  };
-  inputPaymentMethods = (event) => {
-    this.setState({ paymentMethodsjob: event.target.value });
-  };
-  inputDueDate = (event) => {
-    this.setState({ dueDatejob: event.target.value });
-  };
-  creatorJob = () => {
-  state={
-    titlejob:"",
-    descriptionjob:"",
-    pricejob:"",
-    paymentMethodsjob:[],
-    dueDatejob:""
-  }
-  inputTitle = (event) =>{
-    this.setState({titlejob:event.target.value});
-  }
-  inputDescription = (event) =>{
-    this.setState({descriptionjob:event.target.value});
-  }
-  inputPrice = (event) =>{
-    this.setState({pricejob:event.target.value});
-  }
-  inputPaymentMethods = (event) =>{
-    this.setState({paymentMethodsjob:event.target.value});
-  }
-  inputDueDate = (event) =>{
-    this.setState({dueDatejob:event.target.value});
-  }
-  creatorJob =()=>{
-    
-    const body = {
-      title: this.state.titlejob,
-      description: this.state.descriptionjob,
-      price: parseInt(this.state.pricejob),
-      paymentMethods: [this.state.paymentMethodsjob],
-      dueDate: this.state.dueDatejob,
-    };
-    axios
-      .post(postJob_Url, body, axiosConfig)
-      .then((response) => {
-        alert(response.data.message);
-        this.setState({ titlejob: "" });
-        this.setState({ descriptionjob: "" });
-        this.setState({ pricejob: "" });
-        this.setState({ dueDatejob: "" });
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
+  axios
+    .post(postJob_Url, body, axiosConfig)
+    .then((response) => {
+      alert(response.data.message);
+      this.setState({ titlejob: "" });
+      this.setState({ descriptionjob: "" });
+      this.setState({ pricejob: "" });
+      this.setState({ dueDatejob: "" });
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
+
   render() {
     return (
       <div>
@@ -96,7 +99,8 @@ export default class Cadastro extends Component {
             name="pagamento"
             // value={this.state.paymentMethodsjob}
             onChange={this.inputPaymentMethods}
-          >
+          />
+        </div>
         <div>        
         <select name="pagamento"
           
@@ -121,6 +125,6 @@ export default class Cadastro extends Component {
           <button onClick={this.props.mudaHome}>Home</button>
         </div>
       </div>
-    );
+    )
   }
 }

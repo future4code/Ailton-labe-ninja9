@@ -96,11 +96,10 @@ export default class Jobs extends Component {
         <button onClick={this.props.mudaHome}>Voltar</button>
       </div>
     );
-import React, { Component } from 'react'
-import axios from 'axios'
-import { axiosConfig, postJob_Url } from '../Constants/url'
+  }
+}
 
-export default class Jobs extends Component {
+export class Jobs2 extends Component {
   state={
     listaJobs: []
   }
