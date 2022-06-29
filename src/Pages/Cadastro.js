@@ -26,6 +26,30 @@ export default class Cadastro extends Component {
     this.setState({ dueDatejob: event.target.value });
   };
   creatorJob = () => {
+  state={
+    titlejob:"",
+    descriptionjob:"",
+    pricejob:"",
+    paymentMethodsjob:[],
+    dueDatejob:""
+  }
+  inputTitle = (event) =>{
+    this.setState({titlejob:event.target.value});
+  }
+  inputDescription = (event) =>{
+    this.setState({descriptionjob:event.target.value});
+  }
+  inputPrice = (event) =>{
+    this.setState({pricejob:event.target.value});
+  }
+  inputPaymentMethods = (event) =>{
+    this.setState({paymentMethodsjob:event.target.value});
+  }
+  inputDueDate = (event) =>{
+    this.setState({dueDatejob:event.target.value});
+  }
+  creatorJob =()=>{
+    
     const body = {
       title: this.state.titlejob,
       description: this.state.descriptionjob,
@@ -73,6 +97,10 @@ export default class Cadastro extends Component {
             // value={this.state.paymentMethodsjob}
             onChange={this.inputPaymentMethods}
           >
+        <div>        
+        <select name="pagamento"
+          
+          onChange={this.inputPaymentMethods}  >
             <option value="">Forma de Pagamento</option>
             <option value="Cartão de Credito">Cartão de Crédito</option>
             <option value="Cartão de Déditocs">Cartão de Dédito</option>
