@@ -9,12 +9,22 @@ const Container = styled.div `
   align-items: center;
 `
 
+const ButtonHeader = styled.button`
+  background-color: #5fa8d2;
+  color: white;
+  border: none;
+&:hover{
+  background-color: white;
+  color:#5fa8d2;
+}
+`
+
 export default class Header extends Component {
   render() {
     return (
     <Container>
-        <a href='{this.props.mudaHome}'> Home </a>
-        <a href=''> Carrinho </a>
+        <ButtonHeader onClick={this.props.mudaHome}> Home </ButtonHeader>
+        <ButtonHeader href=''> Carrinho </ButtonHeader>
     </Container>
     )
   }
