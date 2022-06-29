@@ -2,6 +2,7 @@ import React from "react";
 import Cadastro from "./Pages/Cadastro";
 import Jobs from "./Pages/Jobs";
 import Home from "./Pages/Home";
+import Header from "./Pages/Header";
 
 export default class App extends React.Component {
   state = {
@@ -43,6 +44,11 @@ export default class App extends React.Component {
   render(){
     return(
       <div>
+        <Header
+        mudaHome={this.mudaHome}
+        mudaCadastro={this.mudaCadastro}
+        mudaJobs={this.mudaJobs}>  
+       </Header>
         {this.onScreen()}
       </div>
     )
