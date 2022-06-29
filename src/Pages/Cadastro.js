@@ -7,7 +7,7 @@ export default class Cadastro extends Component {
     titlejob:"",
     descriptionjob:"",
     pricejob:"",
-    paymentMethodsjob:[""],
+    paymentMethodsjob:[],
     dueDatejob:""
   }
   inputTitle = (event) =>{
@@ -62,7 +62,7 @@ export default class Cadastro extends Component {
         </div>
         <div>        
         <select name="pagamento"
-          value={this.state.paymentMethodsjob}
+          
           onChange={this.inputPaymentMethods}  >
             <option value="">Forma de Pagamento</option>
           <option value="Cartão de Credito">Cartão de Crédito</option>
