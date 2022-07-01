@@ -42,7 +42,7 @@ inputDescription = (event) =>{
   this.setState({descriptionjob:event.target.value});
 }
 inputPrice = (event) =>{
-  this.setState({pricejob:event.target.value});
+  this.setState({pricejob:Number(event.target.value)});
 }
 inputPaymentMethods = (event) =>{
   this.setState({paymentMethodsjob:event.target.value});
@@ -66,6 +66,7 @@ creatorJob =()=>{
       this.setState({ titlejob: "" });
       this.setState({ descriptionjob: "" });
       this.setState({ pricejob: "" });
+      this.setState({ paymentMethodsjob: "" });
       this.setState({ dueDatejob: "" });
     })
     .catch((error) => {
@@ -77,7 +78,7 @@ creatorJob =()=>{
     return (
       <div>
         <h1>Cadastre o seu serviço </h1>
-        {/* {this.state.titlejob}{this.state.descriptionjob}{this.state.pricejob}{this.state.paymentMethodsjob}{this.state.dueDatejob} */}
+        {this.state.titlejob}{this.state.descriptionjob}{this.state.pricejob}{this.state.paymentMethodsjob}{this.state.dueDatejob}
         <div>
           <input value={this.state.titlejob} onChange={this.inputTitle} />
         </div>
@@ -94,13 +95,7 @@ creatorJob =()=>{
             onChange={this.inputPrice}
           />
         </div>
-        <div>
-          <select
-            name="pagamento"
-            // value={this.state.paymentMethodsjob}
-            onChange={this.inputPaymentMethods}
-          />
-        </div>
+        
         <div>        
         <select name="pagamento"
           

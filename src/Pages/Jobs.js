@@ -79,8 +79,9 @@ export default class Jobs extends Component {
       .map((job) => {
         return (
           <p key={job.id}>
-            {" "}
             Titulo: {job.title} Valor R$: {job.price} Data:{job.dueDate}{" "}
+            <button onClick={() => this.props.mudaPageDatails(job.id)}>Detalhes</button>
+            <button>Add</button>
           </p>
         );
       });
@@ -96,29 +97,5 @@ export default class Jobs extends Component {
         <button onClick={this.props.mudaHome}>Voltar</button>
       </div>
     );
-  }
-}
-
-export class Jobs2 extends Component {
-  state={
-    listaJobs: []
-  }
-
-  componentDidMount(){
-    this.getJobList()
-  }
-  getJobList = () => {
-    axios.get(postJob_Url ,axiosConfig)
-    .then((response)=> this.setState({listaJobs:response.data.jobs}))
-    .catch((erro)=> console.log(erro.response))
-  }
-  render() {
-  const myJobs = this.state.listaJobs.map((job) =>{
-    return <p key={job.id}> Titulo  {job.title} Valor R$: {job.price} Data:{job.dueDate}  </p>
-  }) 
-  console.log(this.state.listaJobs)
-    return (
-      <div>{myJobs} </div>
-    )
   }
 }
