@@ -2,20 +2,21 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div `
-  background-color: #5fa8d2;
-  padding: 16px;
+  background-color: #7ac1ed;
+  height: 5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
 
 const ButtonHeader = styled.button`
-  background-color: #5fa8d2;
+  padding: 25px;
+  background-color: #7ac1ed;
   color: white;
   border: none;
 &:hover{
-  background-color: white;
-  color:#5fa8d2;
+  background-color: #5fa8d2;
+  color: white;
 }
 `
 
