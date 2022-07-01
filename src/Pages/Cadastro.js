@@ -1,6 +1,61 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import { axiosConfig, postJob_Url } from "../Constants/url";
+import styled from 'styled-components';
+
+const Container = styled.div `
+  background-color: #5fa8d2;
+  height: 95vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Titulo = styled.h1`
+  color: white;
+  margin-top: 20vh;
+`
+
+const Input = styled.input`
+  width: 20vw;
+  background-color: #5fa8d2;
+  border: none;
+  border-bottom: 1px solid white;
+  ::placeholder, 
+  ::-webkit-input-placeholder{
+    color: white;
+  }
+  :-ms-input-placeholder{
+    color:white;
+  }
+`
+const InputDate = styled.input`
+  background-color: #5fa8d2;
+  color: white;
+  border: 1px solid white;
+
+`
+
+const Select = styled.select`
+  width: 180px;
+  background-color: #5fa8d2;
+  border: 1px solid white;
+  border-radius: 3px;
+  color:white;
+`
+
+const ButtonCadastro = styled.button`
+  margin-top: 12px;
+  height: 40px;
+  width: 120px;
+  background-color: #7ac1ed;
+  color: white;
+  border: none;
+&:hover{
+  background-color: #6cb4df;
+  color: white;
+}`
 
 export default class Cadastro extends Component {
   
@@ -75,34 +130,39 @@ creatorJob =()=>{
 
   render() {
     return (
-      <div>
-        <h1>Cadastre o seu serviço </h1>
+      <Container>
+        <Titulo>Cadastre o seu serviço </Titulo>
         {/* {this.state.titlejob}{this.state.descriptionjob}{this.state.pricejob}{this.state.paymentMethodsjob}{this.state.dueDatejob} */}
         <div>
-          <input value={this.state.titlejob} onChange={this.inputTitle} />
+          <Input
+           value={this.state.titlejob}
+           placeholder="Título do trabalho"
+           onChange={this.inputTitle} />
         </div>
         <div>
-          <input
+          <Input
             value={this.state.descriptionjob}
+            placeholder="Descrição do trabalho"
             onChange={this.inputDescription}
           />
         </div>
         <div>
-          <input
+          <Input
             type="number"
             value={this.state.pricejob}
             onChange={this.inputPrice}
+            placeholder="Preço"
           />
         </div>
         <div>
-          <select
+          {/* <select
             name="pagamento"
             // value={this.state.paymentMethodsjob}
             onChange={this.inputPaymentMethods}
-          />
+          /> */}
         </div>
         <div>        
-        <select name="pagamento"
+        <Select name="pagamento"
           
           onChange={this.inputPaymentMethods}  >
             <option value="">Forma de Pagamento</option>
@@ -111,20 +171,20 @@ creatorJob =()=>{
             <option value="Pix">Pix</option>
             <option value="PayPal">PayPal</option>
             <option value="Boleto">Boleto</option>
-          </select>
+          </Select>
         </div>
         <div>
-          <input
+          <InputDate
             type="date"
             value={this.state.dueDatejob}
             onChange={this.inputDueDate}
           />
         </div>
         <div>
-          <button onClick={this.creatorJob}>Cadastar</button>
-          <button onClick={this.props.mudaHome}>Home</button>
+          <ButtonCadastro onClick={this.creatorJob}>Cadastar</ButtonCadastro>
+          {/* <button onClick={this.props.mudaHome}>Home</button> */}
         </div>
-      </div>
+      </Container>
     )
   }
 }
