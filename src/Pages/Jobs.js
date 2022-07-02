@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { axiosConfig, postJob_Url } from "../Constants/url";
 import Filters from "./Filters";
+import Header from "./Header";
 
 export default class Jobs extends Component {
   state = {
@@ -92,7 +93,7 @@ export default class Jobs extends Component {
           onChangeBusca={this.onChangeBusca}
           onChangeMaximo={this.onChangeValorMaximo}
           onChangeMinimo={this.onChangeValorMinimo}
-        ></Filters>
+        />
         {myJobs}
         <button onClick={this.props.mudaHome}>Voltar</button>
       </div>
